@@ -170,3 +170,6 @@ section#users {
     color: #aad4f5;
     margin: 0;
 }
+.hidden {
+    display:none !important;
+}
