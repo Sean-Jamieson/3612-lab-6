@@ -29,6 +29,15 @@ io.on('connection', socket => {
     io.emit('user list', users);
     io.emit('user left', socket.username);
   });
+  socket.on('disconnect',  () => {
+    for(let i = 0; i < users.length; i++){
+      if(users[i].username == socket.username){
+        users.splice(i, 1);
+      }
+    }
+    io.emit('user list', users);
+    io.emit('user left', socket.username);
+  });
 });
 
 server.listen(port, () =>{
